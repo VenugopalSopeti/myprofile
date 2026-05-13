@@ -4,7 +4,7 @@ import tailwindcss from "@tailwindcss/vite";
 
 export default defineConfig({
   site: "https://VenugopalSopeti.github.io",
-  base: "/myprofile-app",
+  base: "/myprofile",
   integrations: [react()],
   vite: {
     plugins: [tailwindcss()]

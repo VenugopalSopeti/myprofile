@@ -1,0 +1,86 @@
+{
+  "name": "S VenuGopal",
+  "role": "Senior Java / Spring Engineer | Full-stack Learner | Game & Tools Builder",
+  "location": "Hyderabad, Telangana, India",
+  "headline": "Software Developer with 7+ years of experience in Java and Spring ecosystem engineering.",
+  "summary": "I build backend systems, web apps, cloud-ready tools, and coding projects. My work centers on Java, Spring Boot, secure APIs, SQL-backed services, and practical full-stack delivery.",
+  "stats": {
+    "linkedinFollowers": 37,
+    "linkedinConnections": 36
+  },
+  "profiles": {
+    "github": {
+      "username": "VenugopalSopeti",
+      "url": "https://github.com/VenugopalSopeti"
+    },
+    "leetcode": {
+      "username": "VenugopalSopeti",
+      "url": "https://leetcode.com/u/VenugopalSopeti/"
+    },
+    "hackerrank": {
+      "username": "venugopal_sopeti",
+      "url": "https://www.hackerrank.com/profile/venugopal_sopeti"
+    },
+    "linkedin": {
+      "username": "venu-gopal-sopeti-0a966b158",
+      "url": "https://www.linkedin.com/in/venu-gopal-sopeti-0a966b158/"
+    }
+  },
+  "skills": [
+    "Java",
+    "Spring Boot",
+    "Hibernate",
+    "React",
+    "Astro",
+    "Tailwind CSS",
+    "Cloudflare Workers",
+    "SQL",
+    "System Design",
+    "Game Development"
+  ],
+  "experience": [
+    {
+      "company": "Accenture in India",
+      "location": "Hyderabad, Telangana, India",
+      "title": "Software Developer",
+      "summary": "Working on enterprise software delivery with a Java and Spring-focused backend foundation."
+    }
+  ],
+  "education": [
+    {
+      "school": "Gayatri Vidya Parishad College for Degree & PG courses (A)",
+      "period": "2012 - 2016",
+      "result": "8.2"
+    }
+  ],
+  "projects": [
+    {
+      "name": "Loan App Backend",
+      "description": "Secure Spring Boot backend with JWT, OTP, audit logging, encryption flow, and role-based access.",
+      "tags": ["Java", "Spring Boot", "Security"]
+    },
+    {
+      "name": "Developer Profile App",
+      "description": "Cloudflare deployed profile website with scheduled coding-platform updates and a responsive coder dashboard.",
+      "tags": ["Astro", "React", "Cloudflare"]
+    }
+  ],
+  "links": [
+    {
+      "label": "GitHub",
+      "url": "https://github.com/VenugopalSopeti"
+    },
+    {
+      "label": "LeetCode",
+      "url": "https://leetcode.com/u/VenugopalSopeti/"
+    },
+    {
+      "label": "HackerRank",
+      "url": "https://www.hackerrank.com/profile/venugopal_sopeti"
+    },
+    {
+      "label": "LinkedIn",
+      "url": "https://www.linkedin.com/in/venu-gopal-sopeti-0a966b158/"
+    }
+  ]
+}

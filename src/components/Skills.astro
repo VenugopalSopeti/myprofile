@@ -1,0 +1,32 @@
+---
+const { skills } = Astro.props;
+const groups = [
+  { title: 'Backend', items: ['Java', 'Spring Boot', 'Hibernate', 'SQL'] },
+  { title: 'Frontend', items: ['React', 'Astro', 'Tailwind CSS'] },
+  { title: 'Cloud & Delivery', items: ['Cloudflare', 'Cloudflare Workers', 'System Design'] },
+  { title: 'Creative Engineering', items: ['Game Development'] }
+].map((group) => ({
+  ...group,
+  items: group.items.filter((item) => skills.includes(item))
+})).filter((group) => group.items.length > 0);
+---
+<section id="skills" class="mx-auto max-w-6xl px-4 py-12 sm:px-6">
+  <div class="mb-8">
+    <p class="terminal-line font-mono text-sm text-emerald-300">stack</p>
+    <h2 class="mt-2 text-3xl font-bold text-emerald-50 sm:text-4xl">Capability Map</h2>
+    <p class="mt-2 max-w-2xl text-zinc-400">A practical stack for backend-heavy products, cloud deployment, and responsive web interfaces.</p>
+  </div>
+
+  <div class="grid gap-4 md:grid-cols-2 lg:grid-cols-4">
+    {groups.map((group) => (
+      <article class="code-panel rounded-2xl p-5">
+        <h3 class="font-mono text-sm uppercase text-emerald-300">{group.title}</h3>
+        <div class="mt-4 flex flex-wrap gap-2">
+          {group.items.map((skill) => (
+            <span class="rounded-lg border border-emerald-400/25 bg-emerald-400/10 px-3 py-2 font-mono text-xs text-emerald-100 shadow-sm shadow-emerald-400/5">{skill}</span>
+          ))}
+        </div>
+      </article>
+    ))}
+  </div>
+</section>

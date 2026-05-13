@@ -1,0 +1,52 @@
+---
+import MainLayout from '../layouts/MainLayout.astro';
+import Header from '../components/Header.astro';
+import Hero from '../components/Hero.astro';
+import ProfileDetails from '../components/ProfileDetails.astro';
+import Skills from '../components/Skills.astro';
+import Projects from '../components/Projects.astro';
+import CodingStats from '../components/CodingStats';
+import fallbackProfile from '../data/fallback-profile.json';
+
+let profile = fallbackProfile;
+const apiUrl = import.meta.env.PUBLIC_PROFILE_API_URL;
+
+if (apiUrl) {
+  try {
+    const response = await fetch(apiUrl);
+    if (response.ok) {
+      profile = await response.json();
+    }
+  } catch (error) {
+    console.warn('Using fallback profile data', error);
+  }
+}
+---
+<MainLayout>
+  <Header />
+  <main>
+    <Hero profile={profile} />
+    <ProfileDetails profile={profile} />
+    <Skills skills={profile.skills} />
+    <CodingStats client:load github={profile.github} leetcode={profile.leetcode} hackerrank={profile.hackerrank} />
+    <Projects projects={profile.projects} />
+    <section id="contact" class="mx-auto max-w-6xl px-4 py-16 sm:px-6">
+      <div class="code-panel rounded-2xl p-6 sm:p-8">
+        <div class="grid gap-8 lg:grid-cols-[1fr_1.1fr] lg:items-center">
+          <div>
+            <p class="terminal-line font-mono text-sm text-emerald-300">connect</p>
+            <h2 class="mt-2 text-3xl font-bold text-emerald-50 sm:text-4xl">Explore The Full Profile</h2>
+            <p class="muted-copy mt-3 max-w-2xl">Use these profile links to review code, coding-platform progress, and professional background from the original sources.</p>
+          </div>
+          <div class="flex flex-wrap gap-3 lg:justify-end">
+          {profile.links?.map((link) => (
+            <a href={link.url} target="_blank" rel="noreferrer" class="link-focus rounded-lg border border-emerald-400/30 bg-emerald-400/10 px-4 py-3 font-semibold text-emerald-100 hover:border-emerald-300 hover:bg-emerald-400/20">
+              {link.label}
+            </a>
+          ))}
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+</MainLayout>

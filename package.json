@@ -1,0 +1,26 @@
+{
+  "name": "myprofile-app",
+  "version": "1.0.0",
+  "type": "module",
+  "scripts": {
+    "dev": "astro dev",
+    "build": "astro build",
+    "preview": "astro preview",
+    "deploy": "npm run build"
+  },
+  "dependencies": {
+    "@astrojs/react": "latest",
+    "@tailwindcss/vite": "^4.1.0",
+    "astro": "latest",
+    "lucide-react": "latest",
+    "react": "latest",
+    "react-dom": "latest",
+    "tailwindcss": "^4.1.0"
+  },
+  "devDependencies": {
+    "wrangler": "latest"
+  },
+  "overrides": {
+    "vite": "^7.0.0"
+  }
+}

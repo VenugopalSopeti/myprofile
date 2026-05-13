@@ -1,0 +1,61 @@
+---
+const { profile } = Astro.props;
+const experience = profile.experience ?? [];
+const education = profile.education ?? [];
+const linkedinUrl = profile.linkedin?.url || profile.links?.find((link) => link.label === 'LinkedIn')?.url;
+const quickFacts = [
+  { label: 'Location', value: profile.location },
+  { label: 'Followers', value: profile.stats?.linkedinFollowers ?? 0 },
+  { label: 'Connections', value: profile.stats?.linkedinConnections ?? 0 },
+  { label: 'Experience', value: '7+ years' }
+];
+---
+<section id="about" class="mx-auto max-w-6xl px-4 py-12 sm:px-6">
+  <div class="mb-8 flex flex-col gap-3 sm:flex-row sm:items-end sm:justify-between">
+    <div>
+      <p class="terminal-line font-mono text-sm text-emerald-300">about</p>
+      <h2 class="mt-2 text-3xl font-bold text-emerald-50 sm:text-4xl">Professional Snapshot</h2>
+    </div>
+    <a href={linkedinUrl} target="_blank" rel="noreferrer" class="link-focus w-fit rounded-lg border border-emerald-400/30 bg-emerald-400/10 px-4 py-2 font-semibold text-emerald-100 hover:border-emerald-300 hover:bg-emerald-400/20">Open LinkedIn</a>
+  </div>
+
+  <div class="grid gap-5 lg:grid-cols-[0.95fr_1.05fr]">
+    <div class="code-panel rounded-2xl p-6 sm:p-8">
+      <p class="text-lg leading-8 text-zinc-300">{profile.headline}</p>
+      <p class="mt-5 leading-8 text-zinc-400">{profile.summary}</p>
+      <div class="mt-6 grid gap-3 sm:grid-cols-2">
+        {quickFacts.map((fact) => (
+          <div class="rounded-xl border border-emerald-400/15 bg-black/50 p-4">
+            <span class="block font-mono text-xs uppercase text-zinc-500">{fact.label}</span>
+            <strong class="mt-1 block text-emerald-50">{fact.value}</strong>
+          </div>
+        ))}
+      </div>
+    </div>
+
+    <div class="grid gap-5">
+      <div class="code-panel rounded-2xl p-6">
+        <p class="terminal-line font-mono text-sm text-emerald-300">experience</p>
+        {experience.map((item) => (
+          <article class="mt-5 border-l border-emerald-400/30 pl-4">
+            <h3 class="text-xl font-bold text-emerald-50">{item.title}</h3>
+            <p class="mt-1 font-mono text-sm text-emerald-300">{item.company}</p>
+            <p class="mt-1 text-sm text-zinc-500">{item.location}</p>
+            <p class="mt-4 leading-7 text-zinc-300">{item.summary}</p>
+          </article>
+        ))}
+      </div>
+
+      <div class="code-panel rounded-2xl p-6">
+        <p class="terminal-line font-mono text-sm text-emerald-300">education</p>
+        {education.map((item) => (
+          <article class="mt-5 border-l border-emerald-400/30 pl-4">
+            <h3 class="text-lg font-bold text-emerald-50">{item.school}</h3>
+            <p class="mt-1 font-mono text-sm text-zinc-400">{item.period}</p>
+            <p class="mt-2 text-emerald-300">Score: {item.result}</p>
+          </article>
+        ))}
+      </div>
+    </div>
+  </div>
+</section>

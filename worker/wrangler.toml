@@ -1,0 +1,10 @@
+name = "profile-data-worker"
+main = "src/index.ts"
+compatibility_date = "2026-05-13"
+
+[triggers]
+crons = ["0 */6 * * *"]
+
+[[kv_namespaces]]
+binding = "PROFILE_CACHE"
+id = "replace_with_your_kv_namespace_id"
